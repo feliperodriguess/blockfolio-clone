@@ -1,11 +1,16 @@
 import axios from 'axios'
 
+import { getPageNumberId } from '../utils/helpers'
+
 export const resolvers = {
   Query: {
-    getCoins: async () => {
+    coins: async (_, { page = null }) => {
+      const url = page
+        ? `${process.env.BASE_URL}&cursor=${getPageNumberId(page)}`
+        : process.env.BASE_URL
       const {
         data: { results },
-      } = await axios.get(process.env.BASE_URL, {
+      } = await axios.get(url, {
         headers: {
           'x-blockfolio-accesstoken': process.env.TOKEN,
         },

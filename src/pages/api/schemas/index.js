@@ -22,6 +22,6 @@ export const typeDefs = gql`
   }
 
   type Query {
-    getCoins: [Coin!]!
+    coins(page: Int): [Coin!]!
   }
 `
