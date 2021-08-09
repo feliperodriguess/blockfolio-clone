@@ -21,7 +21,19 @@ export const typeDefs = gql`
     updatedAt: String
   }
 
+  type MarketInfo {
+    btcDominance: Float
+    totalMarketCap: Float
+    totalVolume24h: Float
+  }
+
+  type Market {
+    current: MarketInfo!
+    twentyFourHour: MarketInfo!
+  }
+
   type Query {
     coins(page: Int): [Coin!]!
+    market: Market!
   }
 `

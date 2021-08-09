@@ -1,20 +1,13 @@
-import axios from 'axios'
-
-import { getPageNumberId } from '../utils/helpers'
+import { blockfolioApi, getPageNumberId } from '../utils/helpers'
 
 export const resolvers = {
   Query: {
     coins: async (_, { page = null }) => {
-      const url = page
-        ? `${process.env.BASE_URL}&cursor=${getPageNumberId(page)}`
-        : process.env.BASE_URL
+      const baseUrl = '?isFiat=false&limit=50&sort=RANK%3AASC%2CNAME%3AASC'
+      const url = page ? `${baseUrl}&cursor=${getPageNumberId(page)}` : baseUrl
       const {
         data: { results },
-      } = await axios.get(url, {
-        headers: {
-          'x-blockfolio-accesstoken': process.env.TOKEN,
-        },
-      })
+      } = await blockfolioApi.get(url)
       const parsedResults = results.map(
         ({
           id,
@@ -43,6 +36,10 @@ export const resolvers = {
         })
       )
       return parsedResults
+    },
+    market: async () => {
+      const { data } = await blockfolioApi.get('market?fiat=USD')
+      return data
     },
   },
 }

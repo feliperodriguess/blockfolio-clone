@@ -28,10 +28,10 @@ export default function TableHeader({ id, name, symbol, rank, logo, price, chang
         {change > 0 ? `+${change?.toFixed(2)}%▲` : `${change?.toFixed(2)}%▼`}
       </Td>
       <Td color="gray.50" isNumeric textStyle="h1">
-        {formatCurrency(cap?.toFixed(0))}
+        {`$${formatCurrency(cap?.toFixed(0))}`}
       </Td>
       <Td color="gray.50" isNumeric textStyle="h1">
-        {formatCurrency(volume?.toFixed(0))}
+        {`$${formatCurrency(volume?.toFixed(0))}`}
       </Td>
     </Tr>
   )
