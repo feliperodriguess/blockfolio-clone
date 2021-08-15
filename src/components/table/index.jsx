@@ -1,7 +1,5 @@
 import { useState } from 'react'
 import { NetworkStatus, useQuery } from '@apollo/client'
-import Link from 'next/link'
-
 import {
   Box,
   Flex,
@@ -56,7 +54,7 @@ export default function Table() {
           />
         </Tooltip>
         <Button
-          isDisabled={!page || page < 2 || isLoading}
+          isDisabled={!page || isLoading}
           isLoading={!!page && isLoading}
           leftIcon={<FiChevronLeft />}
           mx="8px"

@@ -7,7 +7,7 @@ import {
 
 export const resolvers = {
   Query: {
-    coins: async (_, { page = null }) => {
+    coins: async (_, { page }) => {
       const baseUrl = '?isFiat=false&limit=50&sort=RANK%3AASC%2CNAME%3AASC'
       const url = page ? `${baseUrl}&cursor=${getPageNumberId(page)}` : baseUrl
       const { data } = await blockfolioApi.get(url)
