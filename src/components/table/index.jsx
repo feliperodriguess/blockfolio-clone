@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRouter } from 'next/router'
 import { NetworkStatus, useQuery } from '@apollo/client'
 import {
   Box,
@@ -19,9 +19,9 @@ import TableHeader from './table-header'
 import TableRow from './table-row'
 
 export default function Table() {
-  const [page, setPage] = useState(1)
+  const { query, push } = useRouter()
   const { data, loading, networkStatus, refetch } = useQuery(GET_COINS, {
-    variables: { page },
+    variables: { page: Number(query.page) || 1 },
     notifyOnNetworkStatusChange: true,
   })
   const isRefetching = networkStatus === NetworkStatus.refetch
@@ -54,18 +54,18 @@ export default function Table() {
           />
         </Tooltip>
         <Button
-          isDisabled={!page || page < 2 || isLoading}
-          isLoading={!!page && isLoading}
+          isDisabled={!query.page || query.page < 2 || isLoading}
+          isLoading={!!query.page && isLoading}
           leftIcon={<FiChevronLeft />}
           mx="8px"
-          onClick={() => setPage((previousState) => previousState - 1)}
+          onClick={() => push(`/?page=${(Number(query.page) || 1) - 1}`)}
         >
           Previous 50
         </Button>
         <Button
           isDisabled={isLoading}
-          isLoading={!!page && isLoading}
-          onClick={() => setPage((previousState) => previousState + 1)}
+          isLoading={!!query.page && isLoading}
+          onClick={() => push(`/?page=${(Number(query.page) || 1) + 1}`)}
           rightIcon={<FiChevronRight />}
         >
           Next 50
