@@ -1,34 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">
+    <img alt="Blockfolio" src="https://portaldobitcoin.uol.com.br/wp-content/uploads/2020/08/shareHome.ed35086b-1280x720.jpg" style="width: 500px;height: 300px" />
+    <br>
+    ⚡💲 Blockfolio - Simple Clone
+</h1>
 
-## Getting Started
+<h4 align="center">
+  <a href="https://blockfolio.com/">Blockfolio</a> is an amazing application that is revolutionizing the cryptocurrency market. This project is not linked to the company or for any profit, it was only made for learning and development purposes.
+</h4>
 
-First, run the development server:
+![App Screenshot](https://res.cloudinary.com/dwrddgz8s/image/upload/v1629065654/Blockfolio_Clone_-_Screenshot_1_ohtl4o.png) ![App Screenshot](https://res.cloudinary.com/dwrddgz8s/image/upload/v1629065654/Blockfolio_Clone_-_Screenshot_2_llhujx.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+<p align="center" >
+  <a href="https://blockfolio-clone.vercel.app/" target="_blank" style="display: flex; align-items: center; justify-content: center">
+    <strong>Demo on</strong>
+    <img alt="Demo on Vercel" src="https://ml.globenewswire.com/Resource/Download/3a54c241-a668-4c94-9747-3d3da9da3bf2?size=1">
+  </a>
+</p>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Technologies
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+This project has been developed with the following technologies:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- [React](https://reactjs.org/) ⚛
+- [Next.js](https://next.js.org) 🔽
+- [GraphQL](https://graphql.org) 🔯
+- [Apollo](https://apollojs.org) 🐱‍🚀
+- [Chakra UI](https://chakra-ui.com/) 💅
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+#### BE Stack: Node.js/Apollo Server (GraphQL)
 
-## Learn More
+#### FE Stack: React/Next.js/Apollo Client (GraphQL)
 
-To learn more about Next.js, take a look at the following resources:
+#### [Demo Video](https://res.cloudinary.com/dwrddgz8s/video/upload/v1629065988/Blockfolio_Clone_-_Demo_Video_xvvedk.mov) 🎥
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Made with 🖤 by Felipe Rodrigues [Get in touch!](https://www.linkedin.com/in/feliperodriguess/)
