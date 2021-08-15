@@ -19,7 +19,7 @@ This project has been developed with the following technologies:
 - [React](https://reactjs.org/) ⚛
 - [Next.js](https://next.js.org) 🔽
 - [GraphQL](https://graphql.org) 🔯
-- [Apollo](https://apollojs.org) 🐱‍🚀
+- [Apollo - Client/Server](https://www.apollographql.com/) 🐱‍🚀
 - [Chakra UI](https://chakra-ui.com/) 💅
 
 #### BE Stack: Node.js/Apollo Server (GraphQL)
