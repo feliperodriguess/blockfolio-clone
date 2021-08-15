@@ -1,22 +1,34 @@
 import { ApolloServer } from 'apollo-server-micro'
-import {
-  ApolloServerPluginLandingPageGraphQLPlayground,
-  ApolloServerPluginLandingPageDisabled,
-} from 'apollo-server-core'
+import { ApolloServerPluginLandingPageDisabled } from 'apollo-server-core'
+import Cors from 'cors'
 import { typeDefs } from './schemas'
 import { resolvers } from './resolvers'
 
 const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,
-  plugins: [
-    process.env.NODE_ENV === 'production'
-      ? ApolloServerPluginLandingPageDisabled()
-      : ApolloServerPluginLandingPageGraphQLPlayground(),
-  ],
+  plugins: [ApolloServerPluginLandingPageDisabled()],
 })
 
 const startServer = apolloServer.start()
+
+function initMiddleware(middleware) {
+  return (req, res) =>
+    new Promise((resolve, reject) => {
+      middleware(req, res, (result) => {
+        if (result instanceof Error) {
+          return reject(result)
+        }
+        return resolve(result)
+      })
+    })
+}
+
+const cors = initMiddleware(
+  Cors({
+    methods: ['GET', 'POST', 'OPTIONS'],
+  })
+)
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Credentials', 'true')
@@ -26,7 +38,7 @@ export default async function handler(req, res) {
     res.end()
     return false
   }
-
+  await cors(req, res)
   await startServer
   await apolloServer.createHandler({
     path: '/api/graphql',

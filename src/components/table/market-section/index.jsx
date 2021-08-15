@@ -33,7 +33,8 @@ export default function MarketSection() {
     )
   }
 
-  const { current, twentyFourHour } = data?.market
+  const current = data?.market?.current
+  const twentyFourHour = data?.market?.twentyFourHour
 
   return (
     <Flex pl="60px">
