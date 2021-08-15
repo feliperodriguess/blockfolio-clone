@@ -6,7 +6,7 @@ export default function CoinInfoSection({ coin }) {
   return (
     <Box>
       <Flex align="center" mr="auto">
-        {coinLogo && <Avatar alt="Bitcoin" h="34px" src={coin?.logo} w="34px" />}
+        {coin?.logo && <Avatar alt="Bitcoin" h="34px" src={coin?.logo} w="34px" />}
         <Text color="gray.50" fontSize="30px" fontWeight="bold" lineHeight="45px" mx="8px">
           {coin?.name}
         </Text>
