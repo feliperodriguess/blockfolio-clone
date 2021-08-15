@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
   const client = new ApolloClient({
     uri:
       process.env.NODE_ENV === 'production'
-        ? 'https://blockfolio-clone-5p9mzvhv4-feliperodriguess.vercel.app/api/graphql'
+        ? 'https://blockfolio-clone.vercel.app/api/graphql'
         : process.env.NEXT_PUBLIC_API_URL,
     cache: new InMemoryCache(),
   })
