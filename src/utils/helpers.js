@@ -1,15 +1,19 @@
 const formatCharacters = (value) =>
   (value.slice(0, value.indexOf(',') + 3) + value.slice(-1)).replace(',', '.')
 
+const ONE_MILLION = 10 ** 6
+const ONE_BILLION = 10 ** 9
+const ONE_TRILLION = 10 ** 12
+
 export const formatCurrency = (value) => {
   const formattedValue = value?.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
-  if (value > 10 ** 12) {
+  if (value > ONE_TRILLION) {
     return formatCharacters(`${formattedValue.slice(0, -12)}.${formattedValue.slice(-2)}T`)
   }
-  if (value > 10 ** 9) {
+  if (value > ONE_BILLION) {
     return formatCharacters(`${formattedValue.slice(0, -9)}.${formattedValue.slice(-2)}B`)
   }
-  if (value > 10 ** 6) {
+  if (value > ONE_MILLION) {
     return formatCharacters(`${formattedValue.slice(0, -6)}.${formattedValue.slice(-2)}MM`)
   }
   return formattedValue
