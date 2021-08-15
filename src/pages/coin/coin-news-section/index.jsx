@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useState } from 'react'
+import Lottie from 'react-lottie'
 import {
   Avatar,
   Box,
@@ -19,6 +20,7 @@ import { useQuery } from '@apollo/client'
 
 import { GET_COIN_NEWS } from '../../../modules/coin-news/queries'
 import { getPeriod } from '../../../utils/helpers'
+import { ANIMATION_DEFAULT_OPTIONS } from '../../../utils/constants'
 
 export default function CoinNewsSection({ coinId, coinLogo }) {
   const [currentCopiedLink, setCurrentCopiedLink] = useState('')
@@ -54,7 +56,14 @@ export default function CoinNewsSection({ coinId, coinLogo }) {
   }
 
   if (!data?.coinNews.length) {
-    return null
+    return (
+      <Flex align="center" direction="column" h="100%" justify="center" w="100%">
+        <Text maxW="70%" textAlign="center" textStyle="h1">
+          Could not find news about this cryptocurrency 😢
+        </Text>
+        <Lottie options={ANIMATION_DEFAULT_OPTIONS} height={400} width={300} />
+      </Flex>
+    )
   }
 
   return data?.coinNews?.map((item, index) => (
