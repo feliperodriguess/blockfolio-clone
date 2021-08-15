@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { NetworkStatus, useQuery } from '@apollo/client'
+import Link from 'next/link'
 
 import {
   Box,

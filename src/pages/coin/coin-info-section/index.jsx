@@ -49,7 +49,7 @@ export default function CoinInfoSection({ coin }) {
             MARKET CAP
           </Text>
           <Text color="gray.50" fontSize="16px" fontWeight="bold" lineHeight="22px" mt="8px">
-            {`$${formatCurrency(coin?.cap?.toFixed(0)) || ''}`}
+            {formatCurrency(coin?.cap) || ''}
           </Text>
         </Flex>
         <Flex align="center" direction="column" justify="center" p="25px">
@@ -57,9 +57,7 @@ export default function CoinInfoSection({ coin }) {
             CIRCULATING SUPPLY
           </Text>
           <Text color="gray.50" fontSize="16px" fontWeight="bold" lineHeight="22px" mt="8px">
-            {`$${formatCurrency(coin?.totalSupply?.toFixed(0)) || ''} ${
-              coin?.totalSupply ? coin?.symbol : ''
-            }`}
+            {`${formatCurrency(coin?.totalSupply) || ''} ${coin?.totalSupply ? coin?.symbol : ''}`}
           </Text>
         </Flex>
         <Flex align="center" direction="column" justify="center" p="25px">
@@ -67,7 +65,7 @@ export default function CoinInfoSection({ coin }) {
             VOLUME (1D)
           </Text>
           <Text color="gray.50" fontSize="16px" fontWeight="bold" lineHeight="22px" mt="8px">
-            {`$${formatCurrency(coin?.volume?.toFixed(0)) || ''}`}
+            {formatCurrency(coin?.volume) || ''}
           </Text>
         </Flex>
       </Flex>

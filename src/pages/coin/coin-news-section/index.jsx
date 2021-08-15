@@ -102,7 +102,7 @@ export default function CoinNewsSection({ coinId, coinLogo }) {
           {item.link}
         </Link>
       )}
-      {item.metaDataImage && (
+      {item.metaDataImage && item.link.startsWith('https://') && (
         <Box
           border="1px"
           borderColor="gray.200"
@@ -157,7 +157,7 @@ export default function CoinNewsSection({ coinId, coinLogo }) {
             Copy Link
           </Button>
         )}
-        <Text color="gray.100" textStyle="h3">
+        <Text color="gray.100" ml="auto" textStyle="h3">
           {getPeriod(item?.createdAt)}
         </Text>
       </Flex>

@@ -40,13 +40,13 @@ export default function MarketSection() {
       <Item
         percentage={(1 - twentyFourHour?.totalMarketCap / current?.totalMarketCap) * 100}
         title="MARKET CAP"
-        value={`$${formatCurrency(current?.totalMarketCap?.toFixed(0))}`}
+        value={formatCurrency(current?.totalMarketCap)}
       />
       <Divider colorScheme="gray.200" h="40px" m="0 12px 0 40px" orientation="vertical" />
       <Item
         percentage={(1 - twentyFourHour?.totalVolume24h / current?.totalVolume24h) * 100}
         title="24HR VOLUME"
-        value={`$${formatCurrency(current?.totalVolume24h?.toFixed(0))}`}
+        value={formatCurrency(current?.totalVolume24h)}
       />
       <Divider colorScheme="gray.200" h="40px" m="0 12px 0 40px" orientation="vertical" />
       <Item

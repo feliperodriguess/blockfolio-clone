@@ -1,10 +1,13 @@
-import { Avatar, Box, Flex, Text, Tr, Td } from '@chakra-ui/react'
+import { Avatar, Box, Flex, Link, Text, Tr, Td } from '@chakra-ui/react'
+import { useRouter } from 'next/router'
 
 import { formatCurrency } from '../../../utils/helpers'
 
-export default function TableHeader({ id, name, symbol, rank, logo, price, change, cap, volume }) {
+export default function TableRow({ name, symbol, rank, logo, price, change, cap, volume }) {
+  const router = useRouter()
+
   return (
-    <Tr key={id}>
+    <Tr cursor="pointer" onClick={() => router.push(`/coin/${symbol}`)} _hover={{ bg: 'gray.300' }}>
       <Td>
         <Flex align="center" gap="4px">
           <Text color="gray.200" textStyle="h1">
@@ -21,17 +24,17 @@ export default function TableHeader({ id, name, symbol, rank, logo, price, chang
           </Box>
         </Flex>
       </Td>
-      <Td color="gray.50" isNumeric textStyle="h1">
+      <Td color="gray.50" textStyle="h1">
         {formatCurrency(price)}
       </Td>
-      <Td color={change > 0 ? 'green.50' : 'red.50'} isNumeric textStyle="h1">
-        {change > 0 ? `+${change?.toFixed(2)}%▲` : `${change?.toFixed(2)}%▼`}
+      <Td color={change > 0 ? 'green.50' : 'red.50'} textStyle="h1">
+        {change >= 0 ? `+${change?.toFixed(2)}%▲` : `${change?.toFixed(2)}%▼`}
       </Td>
-      <Td color="gray.50" isNumeric textStyle="h1">
-        {`$${formatCurrency(cap?.toFixed(0))}`}
+      <Td color="gray.50" textStyle="h1">
+        {formatCurrency(cap)}
       </Td>
-      <Td color="gray.50" isNumeric textStyle="h1">
-        {`$${formatCurrency(volume?.toFixed(0))}`}
+      <Td color="gray.50" textStyle="h1">
+        {formatCurrency(volume)}
       </Td>
     </Tr>
   )

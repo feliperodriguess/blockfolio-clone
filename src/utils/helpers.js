@@ -1,13 +1,16 @@
+const formatCharacters = (value) =>
+  (value.slice(0, value.indexOf(',') + 3) + value.slice(-1)).replace(',', '.')
+
 export const formatCurrency = (value) => {
   const formattedValue = value?.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
   if (value > 10 ** 12) {
-    return `${formattedValue.slice(0, -12)}.${formattedValue.slice(-2)}T`
+    return formatCharacters(`${formattedValue.slice(0, -12)}.${formattedValue.slice(-2)}T`)
   }
   if (value > 10 ** 9) {
-    return `${formattedValue.slice(0, -9)}.${formattedValue.slice(-2)}B`
+    return formatCharacters(`${formattedValue.slice(0, -9)}.${formattedValue.slice(-2)}B`)
   }
   if (value > 10 ** 6) {
-    return `${formattedValue.slice(0, -6)}.${formattedValue.slice(-2)}MM`
+    return formatCharacters(`${formattedValue.slice(0, -6)}.${formattedValue.slice(-2)}MM`)
   }
   return formattedValue
 }
