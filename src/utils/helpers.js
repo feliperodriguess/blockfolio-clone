@@ -1,5 +1,5 @@
 const formatCharacters = (value) =>
-  (value.slice(0, value.indexOf(',') + 3) + value.slice(-1)).replace(',', '.')
+  (value?.slice(0, value?.indexOf(',') + 3) + value?.slice(-1))?.replace(',', '.')
 
 const ONE_MILLION = 10 ** 6
 const ONE_BILLION = 10 ** 9
