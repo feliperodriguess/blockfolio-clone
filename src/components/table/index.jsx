@@ -54,7 +54,7 @@ export default function Table() {
           />
         </Tooltip>
         <Button
-          isDisabled={!page || isLoading}
+          isDisabled={!page || page < 2 || isLoading}
           isLoading={!!page && isLoading}
           leftIcon={<FiChevronLeft />}
           mx="8px"
