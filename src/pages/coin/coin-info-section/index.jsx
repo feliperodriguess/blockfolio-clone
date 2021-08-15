@@ -6,12 +6,12 @@ export default function CoinInfoSection({ coin }) {
   return (
     <Box>
       <Flex align="center" mr="auto">
-        <Avatar alt="Bitcoin" h="34px" src={coin.logo} w="34px" />
+        {coinLogo && <Avatar alt="Bitcoin" h="34px" src={coin?.logo} w="34px" />}
         <Text color="gray.50" fontSize="30px" fontWeight="bold" lineHeight="45px" mx="8px">
-          {coin.name}
+          {coin?.name}
         </Text>
         <Text color="gray.100" fontSize="18px" fontWeight="300" lineHeight="27px" m="auto 0 4px">
-          {coin.symbol}
+          {coin?.symbol}
         </Text>
       </Flex>
 
@@ -19,10 +19,10 @@ export default function CoinInfoSection({ coin }) {
         <Text fontSize="40px" fontWeight="bold" lineHeight="60px">
           {formatCurrency(coin?.price)}
         </Text>
-        <Text color={coin.change > 0 ? 'green.50' : 'red.50'} textStyle="h1">
-          {coin.change > 0
-            ? `+${coin.change?.toFixed(2) || ''}%▲`
-            : `${coin.change?.toFixed(2) || ''}%▼`}
+        <Text color={coin?.change > 0 ? 'green.50' : 'red.50'} textStyle="h1">
+          {coin?.change > 0
+            ? `+${coin?.change?.toFixed(2) || ''}%▲`
+            : `${coin?.change?.toFixed(2) || ''}%▼`}
         </Text>
       </Flex>
 
@@ -41,7 +41,7 @@ export default function CoinInfoSection({ coin }) {
             RANK
           </Text>
           <Text color="gray.50" fontSize="16px" fontWeight="bold" lineHeight="22px" mt="8px">
-            {coin.rank}
+            {coin?.rank}
           </Text>
         </Flex>
         <Flex align="center" direction="column" justify="center" p="25px">
