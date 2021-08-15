@@ -17,8 +17,24 @@ export const typeDefs = gql`
     change: Float
     cap: Float
     volume: Float
+    totalSupply: Float
     createdAt: String
     updatedAt: String
+  }
+
+  type CoinNew {
+    id: ID!
+    text: String!
+    tag: String
+    link: String
+    authorName: String
+    authorTitle: String
+    category: String!
+    metaDataTitle: String
+    metaDataDescription: String
+    metaDataImage: String
+    source: String!
+    createdAt: String!
   }
 
   type MarketInfo {
@@ -34,6 +50,8 @@ export const typeDefs = gql`
 
   type Query {
     coins(page: Int): [Coin!]!
+    coin(symbol: String): Coin!
+    coinNews(coinId: String): [CoinNew!]!
     market: Market!
   }
 `

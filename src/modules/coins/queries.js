@@ -17,3 +17,22 @@ export const GET_COINS = gql`
     }
   }
 `
+
+export const GET_COIN_BY_SYMBOL = gql`
+  query GetCoinBySymbol($symbol: String) {
+    coin(symbol: $symbol) {
+      id
+      name
+      symbol
+      rank
+      price
+      volume
+      change
+      cap
+      totalSupply
+      logo {
+        url
+      }
+    }
+  }
+`
